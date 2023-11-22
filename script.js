@@ -2,9 +2,14 @@ const btnAdd = document.getElementById("add-btn");
 var items = [];
 btnAdd.addEventListener("click", function () {
   const itemEnterd = document.getElementById("textbox").value;
-  items.push(itemEnterd);
-  displayArray(itemEnterd);
   document.getElementById("textbox").value = "";
+  if (itemEnterd == "") {
+    alert("please enter task");
+    return false;
+  } else {
+    items.push(itemEnterd);
+    displayArray(itemEnterd);
+  }
 });
 
 function displayArray(element) {
@@ -12,6 +17,11 @@ function displayArray(element) {
   const div = document.createElement("div");
 
   const li = document.createElement("li");
+  li.style.border = "1px solid black";
+  li.style.width = "200px";
+  li.style.display = "flex";
+  li.style.justifyContent = "space-between";
+  li.style.marginBottom = "5px";
 
   let button = document.createElement("button");
   let paragraph = document.createElement("p");
