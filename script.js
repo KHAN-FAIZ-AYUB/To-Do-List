@@ -4,17 +4,13 @@ btnAdd.addEventListener("click", function () {
   const itemEnterd = document.getElementById("textbox").value;
   items.push(itemEnterd);
   console.log(itemEnterd);
+  displayArray(itemEnterd);
 });
 
-function displayArray() {
+function displayArray(element) {
   const displayElements = document.getElementById("displayelements");
 
-  displayElements.innerHTML = "";
-
-  items.forEach(function (e) {
-      let paragraph = document.createElement("p");
-      paragraph.textContent = e;
-      displayElements.appendChild(paragraph);
-    });
+  let paragraph = document.createElement("p");
+  paragraph.textContent = element;
+  displayElements.appendChild(paragraph);
 }
-displayArray();
