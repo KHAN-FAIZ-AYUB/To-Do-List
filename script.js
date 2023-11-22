@@ -2,15 +2,16 @@ const btnAdd = document.getElementById("add-btn");
 var items = [];
 btnAdd.addEventListener("click", function () {
   const itemEnterd = document.getElementById("textbox").value;
-  items.push({ value: itemEnterd, id: new Date().getTime() });
-  console.log(itemEnterd);
+  items.push(itemEnterd);
   displayArray(itemEnterd);
+  document.getElementById("textbox").value = "";
 });
 
 function displayArray(element) {
   const displayElements = document.getElementById("displayelements");
+  const div = document.createElement("div");
+
   const li = document.createElement("li");
-  // li.style.display = "inline";
 
   let button = document.createElement("button");
   let paragraph = document.createElement("p");
@@ -18,9 +19,11 @@ function displayArray(element) {
   paragraph.textContent = element;
   li.appendChild(paragraph);
 
-  let text = document.createTextNode("Delete");
+  const text = document.createTextNode("Delete");
   button.appendChild(text);
   li.appendChild(button);
+
+  div.appendChild(li);
   displayElements.appendChild(li);
 
   button.addEventListener("click", function () {
