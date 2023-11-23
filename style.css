@@ -3,3 +3,23 @@
     padding: 0;
      box-sizing: inherit;
   }  */
+
+  .column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 500px;  }
+  
+
+ .row{
+    display: flex;
+
+ }
+  
+  #to-do-list{
+    background-color: green;
+  }
+
+  #completed{
+    background-color: red;
+  }

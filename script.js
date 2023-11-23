@@ -1,4 +1,5 @@
 const btnAdd = document.getElementById("add-btn");
+const toDo = document.getElementById("to-do-list");
 var items = [];
 btnAdd.addEventListener("click", function () {
   const date = document.getElementById("date").value;
@@ -11,7 +12,6 @@ btnAdd.addEventListener("click", function () {
     items.push(itemEnterd, date);
     displayArray(itemEnterd, date);
   }
-  // console.log(date);
 });
 
 function displayArray(element) {
@@ -20,15 +20,17 @@ function displayArray(element) {
 
   const li = document.createElement("li");
   li.style.border = "1px solid black";
-  li.style.width = "250px";
+  li.style.width = "300px";
   li.style.display = "flex";
   li.style.justifyContent = "space-between";
   li.style.alignItems = "center";
   li.style.marginBottom = "5px";
+  li.style.padding = "5px";
 
   let button = document.createElement("button");
   let paragraph = document.createElement("p");
   let dateBox = document.createElement("date");
+  let completeButton = document.createElement("button");
 
   paragraph.textContent = element;
   li.appendChild(paragraph);
@@ -36,9 +38,13 @@ function displayArray(element) {
   dateBox.textContent = date.value;
   li.appendChild(dateBox);
 
-  const text = document.createTextNode("Delete");
-  button.appendChild(text);
+  const del = document.createTextNode("Delete");
+  button.appendChild(del);
   li.appendChild(button);
+
+  const complete = document.createTextNode("Complete");
+  completeButton.appendChild(complete);
+  li.appendChild(completeButton);
 
   div.appendChild(li);
   displayElements.appendChild(li);
